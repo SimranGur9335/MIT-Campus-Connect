@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Anton&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  
+  --color-brand-primary: #38bdf8;
+  --color-brand-bg: #020617;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-slate-50 min-h-screen relative font-sans antialiased;
+  }
+}
+
+@layer components {
+  .mesh-bg {
+    @apply fixed inset-0 z-[-1] pointer-events-none;
+    background: radial-gradient(circle at 0% 0%, #0f172a 0%, transparent 50%), 
+                radial-gradient(circle at 100% 100%, #1e1b4b 0%, transparent 50%), 
+                radial-gradient(circle at 50% 50%, #020617 0%, transparent 100%);
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-active {
+    @apply bg-sky-500/15 backdrop-blur-xl border border-sky-500/30;
+  }
+
+  .glass-alert {
+    @apply bg-red-500/10 backdrop-blur-xl border border-red-500/30;
+  }
+  
+  .glass-heavy {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
